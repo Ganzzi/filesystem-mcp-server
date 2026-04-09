@@ -17,6 +17,8 @@
   "homepage": "https://github.com/cyanheads/filesystem-mcp-server#readme",
   "scripts": {
     "build": "tsc",
+    "test": "vitest run",
+    "test:cov": "vitest run --coverage",
     "clean": "ts-node scripts/clean.ts",
     "rebuild": "ts-node --esm scripts/clean.ts && npm run build",
     "start": "node dist/index.js",
@@ -55,10 +57,12 @@
   "devDependencies": {
     "@types/express": "^5.0.2",
     "@types/js-yaml": "^4.0.9",
+    "@vitest/coverage-v8": "^2.1.8",
     "axios": "^1.9.0",
     "js-yaml": "^4.1.0",
     "prettier": "^3.5.3",
-    "typedoc": "^0.28.4"
+    "typedoc": "^0.28.4",
+    "vitest": "^2.1.8"
   },
   "keywords": [
     "AI-integration",

@@ -165,3 +165,9 @@ coverage/
 repomix-output*
 mcp-servers.json
 logs/
+.gitnexus
+
+# Project
+.claude/
+AGENTS.md
+CLAUDE.md

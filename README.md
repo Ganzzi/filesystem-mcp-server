@@ -231,7 +231,43 @@ The server exposes the following tools for filesystem interaction:
 | **`move_path`**              | Moves or renames a file or directory from a source path to a destination path. Accepts relative or absolute paths for both.                                                                                                                                                                                        |
 | **`copy_path`**              | Copies a file or directory from a source path to a destination path. For directories, it copies recursively by default (`recursive: true`). Accepts relative or absolute paths.                                                                                                                                    |
 
-_Refer to the tool registration files (`src/mcp-server/tools/*/registration.ts`) for detailed input/output schemas (Zod/JSON Schema)._
+See [`docs/api-reference.md`](docs/api-reference.md) for detailed tool documentation.
+
+## Testing
+
+```bash
+npm install
+npm test                # Run PR-gated unit tests
+npm run test:cov        # Run tests with coverage report
+npm run build           # Compile TypeScript to JavaScript
+```
+
+See [`docs/development.md`](docs/development.md) for full development guide.
+
+## Project Structure
+
+The codebase is organized for clarity and maintainability:
+
+```
+filesystem-mcp-server/
+├── dist/                 # Compiled JavaScript output (after npm run build)
+├── logs/                 # Log files (created at runtime)
+├── node_modules/         # Project dependencies
+├── src/                  # TypeScript source code
+├── tests/                # Unit and integration tests
+├── docs/                 # Documentation
+├── .github/workflows/    # CI workflows
+├── LICENSE
+├── package.json
+├── tsconfig.json
+└── README.md
+```
+
+## Documentation
+
+- **[API Reference](docs/api-reference.md)** — Complete tool documentation
+- **[Development Guide](docs/development.md)** — Setup, testing, and contribution
+- **[Configuration](docs/configuration.md)** — Environment variables and options
 
 ## Project Structure
 
