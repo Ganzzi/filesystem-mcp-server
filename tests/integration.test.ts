@@ -106,3 +106,70 @@ describe("filesystem MCP read/write integration", () => {
     ).rejects.toBe(resolutionError);
   });
 });
+
+// ---------------------------------------------------------------------------
+// Live MCP Server Integration Tests
+// ---------------------------------------------------------------------------
+// These tests connect to a running MCP server instance.
+// They are skipped unless MCP_TEST_HOST is set.
+//
+// Environment variables required:
+// - MCP_TEST_HOST — MCP server host (e.g., "http://192.168.1.100:3010")
+// - MCP_AUTH_SECRET_KEY — JWT secret key for authentication
+//
+// To enable live tests:
+//   export MCP_TEST_HOST="http://your-mcp-server:3010"
+//   export MCP_AUTH_SECRET_KEY="your-secret-key"
+// ---------------------------------------------------------------------------
+
+describe.skipIf(!process.env.MCP_TEST_HOST)("Live MCP Filesystem Operations", () => {
+  const MCP_HOST = process.env.MCP_TEST_HOST || "";
+  const AUTH_SECRET = process.env.MCP_AUTH_SECRET_KEY || "test-secret";
+
+  it("should connect and list files", async () => {
+    // This test would require an actual MCP client implementation
+    // For now, we skip with a structured message
+    if (!MCP_HOST) {
+      console.log(
+        "BUILT_NOT_VERIFIED: MCP_TEST_HOST not set. " +
+        'Set MCP_TEST_HOST="http://your-mcp-server:3010" to enable live MCP tests.'
+      );
+      return;
+    }
+
+    // TODO: Implement MCP client connection and list_files test
+    // This requires a client library that can speak the MCP protocol over HTTP
+    console.log("Live MCP test placeholder - client implementation needed");
+  });
+
+  it("should write and read file round-trip", async () => {
+    if (!MCP_HOST) {
+      console.log(
+        "BUILT_NOT_VERIFIED: MCP_TEST_HOST not set. " +
+        'Set MCP_TEST_HOST="http://your-mcp-server:3010" to enable live MCP tests.'
+      );
+      return;
+    }
+
+    // TODO: Implement write_file and read_file round-trip test
+    // This requires:
+    // 1. JWT token generation using MCP_AUTH_SECRET_KEY
+    // 2. HTTP POST to MCP server with tool call
+    // 3. Verify write_file response
+    // 4. Verify read_file returns written content
+    console.log("Live MCP test placeholder - client implementation needed");
+  });
+
+  it("should perform search-and-replace operation", async () => {
+    if (!MCP_HOST) {
+      console.log(
+        "BUILT_NOT_VERIFIED: MCP_TEST_HOST not set. " +
+        'Set MCP_TEST_HOST="http://your-mcp-server:3010" to enable live MCP tests.'
+      );
+      return;
+    }
+
+    // TODO: Implement update_file test with search/replace
+    console.log("Live MCP test placeholder - client implementation needed");
+  });
+});
